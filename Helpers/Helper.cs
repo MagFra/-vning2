@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Övning2
+namespace Övning2.Helpers
 {
-    internal static class Helper
+    public class Helper : IHelper
     {
 
 
 
-        internal static int GetInputInt(string tag)
+        public int GetInputInt(string tag)
         {
             string temp;
             while (true)
@@ -23,7 +23,7 @@ namespace Övning2
                 }
                 else
                 {
-                    Console.WriteLine("måste skriva ett heltal!");
+                    WriteLine("måste skriva ett heltal!");
                 }
             }
         }
@@ -31,7 +31,7 @@ namespace Övning2
 
 
 
-        internal static string GetInputString(string tag)
+        public string GetInputString(string tag)
         {
             string temp;
 
@@ -41,7 +41,7 @@ namespace Övning2
                 temp = Console.ReadLine()!;
                 if (string.IsNullOrWhiteSpace(temp) || string.IsNullOrEmpty(temp))
                 {
-                    Console.WriteLine("Du måste skriva något!");
+                    WriteLine("Du måste skriva något!");
                 }
                 else
                 {
@@ -50,7 +50,9 @@ namespace Övning2
             }
         }
 
-
-
+        public void WriteLine(string text)
+        {
+            Console.WriteLine(text);
+        }
     }
 }

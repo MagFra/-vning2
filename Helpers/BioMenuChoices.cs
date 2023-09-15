@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Övning2
+namespace Övning2.Helpers
 {
-    internal enum MainMenuChoices
+    internal enum BioMenuChoices
     {
-        Close,
-        Bio
+        Avsluta,
+        Person,
+        Grupp
     }
 }

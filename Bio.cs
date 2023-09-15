@@ -1,10 +1,13 @@
-﻿namespace Övning2
+﻿using Övning2.Helpers;
+
+namespace Övning2
 {
     internal static class Bio
     {
+        private static IHelper helper = new Helper();
         internal static void Start()
         {
-            Console.WriteLine("Välkommen till BIO!");
+            helper.WriteLine("Välkommen till BIO!");
             bool exit = false;
             while (!exit)
             {
@@ -15,7 +18,7 @@
                     case (uint)BioMenuChoices.Avsluta: { exit = true; break; }
                     case (uint)BioMenuChoices.Person: { Person(); break; }
                     case (uint)BioMenuChoices.Grupp: { Grupp(); break; }
-                    default: { Console.WriteLine("Du kan bara välja alternativ från menyn."); break; }
+                    default: { helper.WriteLine("Du kan bara välja alternativ från menyn."); break; }
                 }
             }
         }
@@ -30,10 +33,10 @@
 
             while (!exit)
             {
-                AntalPersoner = Helper.GetInputInt("Hur många personer är det i gruppen?");
+                AntalPersoner = helper.GetInputInt("Hur många personer är det i gruppen?");
                 if (AntalPersoner == 0) { exit = true; }
-                else if (AntalPersoner < 2) { Console.WriteLine("En grupp bstår av minst två personer."); }
-                else if (AntalPersoner > 150) { Console.WriteLine("Vår salong rymmer inte mer än 150 personer."); }
+                else if (AntalPersoner < 2) { helper.WriteLine("En grupp bstår av minst två personer."); }
+                else if (AntalPersoner > 150) { helper.WriteLine("Vår salong rymmer inte mer än 150 personer."); }
                 else { exit = true; AskForGroupAges(AntalPersoner); }
             }
         }
@@ -53,7 +56,7 @@
                 summa += SelectPrice(AskForAge(initAgeQuestio, askForResonableAge));
             }
 
-            Console.WriteLine($"Gruppen innehåller {antalPersoner} st personer.\nTotalpriset är {summa} SEK.");
+            helper.WriteLine($"Gruppen innehåller {antalPersoner} st personer.\nTotalpriset är {summa} SEK.");
         }
 
 
@@ -67,7 +70,7 @@
 
                 summa += SelectPrice(AskForAge(initAgeQuestio, askForResonableAge));
 
-            Console.WriteLine($"Personens biljettpris är {summa} SEK.");
+            helper.WriteLine($"Personens biljettpris är {summa} SEK.");
         }
 
 
@@ -78,10 +81,10 @@
             bool exit = false;
             while (!exit)
             {
-                age = Helper.GetInputInt(initAgeQuestio);
+                age = helper.GetInputInt(initAgeQuestio);
                 if (age < 0 || age > 120)
                 {
-                    Console.WriteLine(askForResonableAge);
+                    helper.WriteLine(askForResonableAge);
                 }
                 else
                 {

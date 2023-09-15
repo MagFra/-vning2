@@ -1,7 +1,10 @@
-﻿namespace Övning2
+﻿using Övning2.Helpers;
+
+namespace Övning2
 {
-    internal class MainMenu
+        internal class MainMenu
     {
+        private static IHelper helper = new Helper();
         internal void StartHere()
         {
             uint menuChoice;
@@ -19,9 +22,10 @@
                             Bio.Start();
                             break; 
                         }
-                    default: { Console.WriteLine("Du försöker välja utanfö menyn!"); break; }
+                    default: { helper.WriteLine("Du försöker välja utanfö menyn!"); break; }
                 }
             }
+
         }
     }
 }

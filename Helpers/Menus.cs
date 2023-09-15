@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Övning2
+namespace Övning2.Helpers
 {
     internal static class Menus
     {
