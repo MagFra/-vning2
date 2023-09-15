@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Övning2
 {
-    internal enum MenuChoices
+    internal enum MainMenuChoices
     {
         Close,
-        Default
+        Bio
     }
 }
