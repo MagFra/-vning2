@@ -5,7 +5,7 @@
         internal void StartHere()
         {
             Menu menu = new();
-            int menuChoice;
+            uint menuChoice;
 
             bool exit = false;
             while (!exit)
@@ -14,8 +14,8 @@
 
                 switch (menuChoice) 
                 { 
-                    case (int)MenuChoices.Close: { exit = true; break; }
-                    case (int)MenuChoices.Default: { Console.WriteLine("Du har nu fått fel meddelande!"); break; }
+                    case (uint)MenuChoices.Close: { exit = true; break; }
+                    case (uint)MenuChoices.Default: { Console.WriteLine("Du har nu fått fel meddelande!"); break; }
                 }
             }
         }

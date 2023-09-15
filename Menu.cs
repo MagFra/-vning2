@@ -4,7 +4,7 @@ namespace Övning2
 {
     internal class Menu
     {
-        internal static int ViewAndChoose()
+        internal static uint ViewAndChoose()
         {
             StringBuilder temp = new();
 
@@ -14,49 +14,7 @@ namespace Övning2
 
             string temp2 = temp.ToString();
 
-            return GetInputInt(temp2);
-        }
-
-
-
-
-        private static int GetInputInt(string tag)
-        {
-            string temp;
-            while (true)
-            {
-                temp = GetInputString(tag);
-                if (int.TryParse(temp,out int temp2))
-                {
-                    return temp2;
-                }
-                else
-                {
-                    Console.WriteLine("måste skriva ett heltal!");
-                }
-            }
-        }
-
-
-
-
-        internal static string GetInputString(string tag)
-        {
-            string temp;
-
-            while (true)
-            {
-                Console.WriteLine(tag);
-                temp = Console.ReadLine()!;
-                if (string.IsNullOrWhiteSpace(temp) || string.IsNullOrEmpty(temp))
-                {
-                    Console.WriteLine("Du måste skriva något!");
-                }
-                else
-                {
-                    return temp;
-                }
-            }
+            return (uint)Math.Abs(Helper.GetInputInt(temp2));
         }
     }
 }
