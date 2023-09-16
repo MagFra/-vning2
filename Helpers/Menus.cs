@@ -2,23 +2,28 @@
 
 namespace Övning2.Helpers
 {
-    internal static class Menus
+    internal class Menus
     {
-        internal static uint MainMenu()
+        private static IHelper helper=null!;
+        internal Menus(IHelper help) => helper = help;
+
+        internal uint MainMenu()
         {
             StringBuilder temp = new();
 
             temp.Append($"{(uint)MainMenuChoices.Close}. {MainMenuChoices.Close}");
             temp.Append($"\n");
             temp.Append($"{(uint)MainMenuChoices.Bio}. {MainMenuChoices.Bio}. Ett program för att hjälpa en bio att begära rätt pris för biljetter. Beroende på om kundens ålder avgörs om ungdoms-, pensionärs- eller normalpris ska begäras.Programmet hanterar även grupper.");
+            temp.Append($"\n");
+            temp.Append($"{(uint)MainMenuChoices.Loop}. {MainMenuChoices.Loop}. Upprepar en text tio gånger.");
 
             string temp2 = temp.ToString();
 
-            return (uint)Math.Abs(Helper.GetInputInt(temp2));
+            return (uint)Math.Abs(helper.GetInputInt(temp2));
         }
 
 
-        internal static uint BioMenu()
+        internal uint BioMenu()
         {
             StringBuilder temp = new();
 
@@ -30,7 +35,7 @@ namespace Övning2.Helpers
 
             string temp2 = temp.ToString();
 
-            return (uint)Math.Abs(Helper.GetInputInt(temp2));
+            return (uint)Math.Abs(helper.GetInputInt(temp2));
         }
     }
 }

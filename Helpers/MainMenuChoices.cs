@@ -9,6 +9,7 @@ namespace Övning2.Helpers
     internal enum MainMenuChoices
     {
         Close,
-        Bio
+        Bio,
+        Loop
     }
 }

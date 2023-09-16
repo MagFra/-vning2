@@ -2,16 +2,19 @@
 
 namespace Övning2
 {
-    internal static class Bio
+    internal class Bio
     {
-        private static IHelper helper = new Helper();
-        internal static void Start()
+        private static IHelper helper = null!;
+        internal Bio(IHelper help) => helper = help;
+
+        internal void Start()
         {
             helper.WriteLine("Välkommen till BIO!");
+            Menus? menus = new Menus(helper);
             bool exit = false;
             while (!exit)
             {
-                uint menuChois = Menus.BioMenu();
+                uint menuChois = menus.BioMenu();
 
                 switch (menuChois)
                 {
@@ -21,12 +24,13 @@ namespace Övning2
                     default: { helper.WriteLine("Du kan bara välja alternativ från menyn."); break; }
                 }
             }
+            menus = null;
         }
 
 
 
 
-        private static void Grupp()
+        private void Grupp()
         {
             bool exit = false;
             int AntalPersoner;
@@ -44,7 +48,7 @@ namespace Övning2
 
 
 
-        private static void AskForGroupAges(int antalPersoner)
+        private void AskForGroupAges(int antalPersoner)
         {
             string initAgeQuestio, askForResonableAge;
             uint summa = 0;
@@ -62,7 +66,7 @@ namespace Övning2
 
 
 
-        private static void Person()
+        private void Person()
         {
             uint summa = 0;
                 string initAgeQuestio = "Hur gammal är personen?";
@@ -75,7 +79,7 @@ namespace Övning2
 
 
 
-        private static int AskForAge(string initAgeQuestio, string askForResonableAge)
+        private int AskForAge(string initAgeQuestio, string askForResonableAge)
         {
             int age = 0;
             bool exit = false;
