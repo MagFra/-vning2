@@ -7,6 +7,7 @@ namespace Övning2
         private static IHelper helper = null!;
         private Bio? bio = null;
         private Loop? loop = null;
+        private Tredje? tredje = null;
         public MainMenu(IHelper help) => helper = help;
 
         internal void StartHere()
@@ -34,6 +35,13 @@ namespace Övning2
                             loop = new Loop(helper);
                             loop.Start();
                             loop = null;
+                            break;
+                        }
+                    case (uint)MainMenuChoices.Tredje:
+                        {
+                            tredje = new Tredje(helper);
+                            tredje.Start();
+                            tredje = null;
                             break;
                         }
                     default: { helper.WriteLine("Du försöker välja utanfö menyn!"); break; }

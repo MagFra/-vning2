@@ -16,6 +16,8 @@ namespace Övning2.Helpers
             temp.Append($"{(uint)MainMenuChoices.Bio}. {MainMenuChoices.Bio}. Ett program för att hjälpa en bio att begära rätt pris för biljetter. Beroende på om kundens ålder avgörs om ungdoms-, pensionärs- eller normalpris ska begäras.Programmet hanterar även grupper.");
             temp.Append($"\n");
             temp.Append($"{(uint)MainMenuChoices.Loop}. {MainMenuChoices.Loop}. Upprepar en text tio gånger.");
+            temp.Append($"\n");
+            temp.Append($"{(uint)MainMenuChoices.Tredje}. {MainMenuChoices.Tredje}. Hitta det tredje ordet i en valfri mening.");
 
             string temp2 = temp.ToString();
 

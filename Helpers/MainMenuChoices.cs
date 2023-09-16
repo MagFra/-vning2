@@ -10,6 +10,7 @@ namespace Övning2.Helpers
     {
         Close,
         Bio,
-        Loop
+        Loop,
+        Tredje
     }
 }
