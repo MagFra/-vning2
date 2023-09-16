@@ -4,9 +4,9 @@ namespace Övning2
 {
     internal class Tredje
     {
-        private static IHelper helper = null!;
+        private static IHelperUI helper = null!;
 
-        internal Tredje(IHelper help) => helper = help;
+        internal Tredje(IHelperUI help) => helper = help;
 
         internal void Start()
         {
@@ -15,6 +15,7 @@ namespace Övning2
             string[] split = tempText.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
             helper.WriteLine($"\"{split[2]}\" är det tredje ordet.");
+            helper.WaitForUser("Tryck \"Enter\" för att fortsätta.");
         }
     }
 }

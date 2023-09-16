@@ -4,12 +4,11 @@ namespace Övning2
 {
     internal class Bio
     {
-        private static IHelper helper = null!;
-        internal Bio(IHelper help) => helper = help;
+        private static IHelperUI helper = null!;
+        internal Bio(IHelperUI help) => helper = help;
 
         internal void Start()
         {
-            helper.WriteLine("Välkommen till BIO!");
             Menus? menus = new Menus(helper);
             bool exit = false;
             while (!exit)
@@ -21,7 +20,7 @@ namespace Övning2
                     case (uint)BioMenuChoices.Avsluta: { exit = true; break; }
                     case (uint)BioMenuChoices.Person: { Person(); break; }
                     case (uint)BioMenuChoices.Grupp: { Grupp(); break; }
-                    default: { helper.WriteLine("Du kan bara välja alternativ från menyn."); break; }
+                    default: { helper.WaitForUser("Du kan bara välja alternativ från menyn.\nTryk \"Enter\" för att försöka igen.\n"); break; }
                 }
             }
             menus = null;
@@ -61,6 +60,7 @@ namespace Övning2
             }
 
             helper.WriteLine($"Gruppen innehåller {antalPersoner} st personer.\nTotalpriset är {summa} SEK.");
+            helper.WaitForUser("Tryck \"Enter\" för att fortsätta.");
         }
 
 
@@ -75,6 +75,7 @@ namespace Övning2
                 summa += SelectPrice(AskForAge(initAgeQuestio, askForResonableAge));
 
             helper.WriteLine($"Personens biljettpris är {summa} SEK.");
+            helper.WaitForUser("Tryck \"Enter\" för att fortsätta.");
         }
 
 

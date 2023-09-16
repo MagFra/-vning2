@@ -4,11 +4,11 @@ namespace Övning2
 {
         internal class MainMenu
     {
-        private static IHelper helper = null!;
+        private static IHelperUI helper = null!;
         private Bio? bio = null;
         private Loop? loop = null;
         private Tredje? tredje = null;
-        public MainMenu(IHelper help) => helper = help;
+        public MainMenu(IHelperUI help) => helper = help;
 
         internal void StartHere()
         {
@@ -21,8 +21,8 @@ namespace Övning2
                 menuChoice = menus.MainMenu();
 
                 switch (menuChoice) 
-                { 
-                    case (uint)MainMenuChoices.Close: { exit = true; break; }
+                {
+                    case (uint)MainMenuChoices.Close: { exit = true; helper.Clear(); break; }
                     case (uint)MainMenuChoices.Bio:
                         {
                             bio = new Bio(helper);
@@ -44,7 +44,7 @@ namespace Övning2
                             tredje = null;
                             break;
                         }
-                    default: { helper.WriteLine("Du försöker välja utanfö menyn!"); break; }
+                    default: { helper.WaitForUser("Du försöker välja utanför menyn!\nTryck på \"Enter\" för att göra ett nytt försök.\n"); break; }
                 }
             }
 

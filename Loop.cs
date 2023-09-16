@@ -4,9 +4,9 @@ namespace Övning2
 {
     internal class Loop
     {
-        private static IHelper helper = null!;
+        private static IHelperUI helper = null!;
 
-        internal Loop(IHelper help) => helper = help;
+        internal Loop(IHelperUI help) => helper = help;
 
         internal void Start()
         {
@@ -15,6 +15,7 @@ namespace Övning2
             {
                 helper.WriteLine($"{i}\t{tempText}");
             }
+            helper.WaitForUser("Tryck \"Enter\" för att fortsätta.");
         }
     }
 }
