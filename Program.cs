@@ -5,11 +5,15 @@ namespace Övning2
 {
     internal class Program
     {
-        internal static IHelperUI Helper = new HelperUI();
-        // internal static IHelperUI Helper = new MockHelperUI();
-        private static MainMenu runner = new();
+        internal static IHelperUI? Helper { get; private set; }
+        private static MainMenu? runner = null;
+
         static void Main(string[] args)
         {
+            Helper = new HelperUI(); 
+            // Helper = new MockHelperUI();
+
+            runner = new();
             runner.StartHere();
         }
     }
