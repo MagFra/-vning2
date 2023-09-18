@@ -16,7 +16,6 @@ namespace Övning2.Helpers
             string temp;
             while (true)
             {
-                // if (cls) { Console.Clear(); }
                 temp = GetInputString(text, cls);
                 if (int.TryParse(temp, out int temp2))
                 {
@@ -38,7 +37,6 @@ namespace Övning2.Helpers
 
             while (true)
             {
-                // if (cls) { Console.Clear(); }
                 WriteLine(text, cls);
                 temp = Console.ReadLine()!;
                 if (string.IsNullOrWhiteSpace(temp) || string.IsNullOrEmpty(temp))

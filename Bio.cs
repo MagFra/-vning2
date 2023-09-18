@@ -4,12 +4,11 @@ namespace Övning2
 {
     internal class Bio
     {
-        private static IHelperUI helper = null!;
-        internal Bio(IHelperUI help) => helper = help;
+        private static IHelperUI helper = Program.Helper;
 
         internal void Start()
         {
-            Menus? menus = new Menus(helper);
+            Menus? menus = new();
             bool exit = false;
             while (!exit)
             {

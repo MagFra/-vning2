@@ -4,10 +4,7 @@ namespace Övning2
 {
     internal class Loop
     {
-        private static IHelperUI helper = null!;
-
-        internal Loop(IHelperUI help) => helper = help;
-
+        private static IHelperUI helper = Program.Helper;
         internal void Start()
         {
             string tempText = helper.GetInputString("Skriv en valfri text så repeterar jag den 10 gånger.");

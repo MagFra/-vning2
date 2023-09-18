@@ -4,8 +4,7 @@ namespace Övning2.Helpers
 {
     internal class Menus
     {
-        private static IHelperUI helper=null!;
-        internal Menus(IHelperUI help) => helper = help;
+        private static IHelperUI helper = Program.Helper;
 
         internal uint MainMenu()
         {
@@ -27,7 +26,7 @@ namespace Övning2.Helpers
 
             string temp2 = temp.ToString();
 
-            // helper.Clear();
+            // Helper.Clear();
 
             return (uint)Math.Abs(helper.GetInputInt(text: temp2, cls: true));
         }
@@ -48,7 +47,7 @@ namespace Övning2.Helpers
 
             string temp2 = temp.ToString();
 
-            // helper.Clear();
+            // Helper.Clear();
 
             return (uint)Math.Abs(helper.GetInputInt(text: temp2, cls: true));
         }

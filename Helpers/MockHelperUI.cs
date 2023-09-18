@@ -13,19 +13,19 @@ namespace Övning2.Helpers
         public string InputString { private get; set; } = "Kalle";
         public string? WriteString { get; private set; }
         private int counter = 0;
-        int IHelperUI.GetInputInt(string text, bool cls = false)
+        int IHelperUI.GetInputInt(string text, bool cls)
         {
             if (counter >= 10) { InputInt = 0; } 
             counter++;
             return InputInt;
         }
 
-        string IHelperUI.GetInputString(string text, bool cls = false)
+        string IHelperUI.GetInputString(string text, bool cls)
         {
             return InputString;
         }
 
-        void IHelperUI.WriteLine(string text, bool cls = false)
+        void IHelperUI.WriteLine(string text, bool cls)
         {
             WriteString = text;
         }
